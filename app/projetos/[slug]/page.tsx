@@ -12,7 +12,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const project = cases[slug as keyof typeof cases] ?? cases.atlas;
   return <main className="case-page" style={{ '--case': project.color } as React.CSSProperties}>
-    <nav className="nav shell"><Link href="/" className="brand"><span className="brand-mark" />ORBE<span>®</span></Link><Link href="/#projetos" className="nav-cta"><ArrowLeft size={15} /> Todos os projetos</Link></nav>
+    <nav className="nav nav-wide"><Link href="/" className="brand"><span className="brand-mark" />PEDRO GOZETTO</Link><Link href="/#projetos" className="nav-cta"><ArrowLeft size={15} /> Todos os projetos</Link></nav>
     <section className="case-hero shell"><p className="eyebrow"><span /> {project.number} / {project.type}</p><h1>{project.name}</h1><p>{project.description}</p><div className="case-art"><div className="case-window"><i /><b /><u /></div><small>CASE STUDY · 2026</small></div></section>
     <section className="case-details shell"><div><p className="section-index">DESAFIO</p><h2>Uma presença à altura do que a marca já entrega no mundo real.</h2></div><div><p className="section-index">RESPOSTA</p><p>Construímos uma experiência de navegação limpa, marcante e pensada para colocar as histórias, o olhar e o ritmo da marca no centro de cada tela.</p><Link href="/#contato">Começar um projeto <ArrowUpRight size={17} /></Link></div></section>
   </main>;
