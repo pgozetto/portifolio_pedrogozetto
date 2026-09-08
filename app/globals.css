@@ -219,6 +219,7 @@ h2 em {
   object-fit: contain;
   opacity: 1;
   filter: drop-shadow(0 24px 42px rgba(0, 0, 0, 0.5));
+  content-visibility: auto;
 }
 .art-label {
   position: absolute;
@@ -350,6 +351,7 @@ h2 em {
   overflow: hidden;
   padding: 17px;
   color: #e9edfb;
+  contain: layout paint;
 }
 .project-visual:after {
   content: '';
@@ -1333,6 +1335,12 @@ footer {
 }
 .project-card:hover .project-meta svg {
   color: var(--project-accent);
+}
+.intro-section,
+.work-section,
+footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 760px;
 }
 .contact-actions {
   align-items: flex-start;

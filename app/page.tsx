@@ -1,7 +1,3 @@
-'use client';
-
-import Link from 'next/link';
-import { useEffect, useRef } from 'react';
 import {
   ArrowUpRight,
   HeartHandshake,
@@ -13,6 +9,7 @@ import {
   Worm,
   Wrench,
 } from 'lucide-react';
+import { SiteMotion } from '@/components/site-motion';
 
 const projects = [
   {
@@ -23,6 +20,7 @@ const projects = [
     tone: 'judo',
     accent: '#47c8ff',
     icon: Medal,
+    url: 'https://site-pgozettojudo.vercel.app/',
   },
   {
     number: '02',
@@ -32,6 +30,7 @@ const projects = [
     tone: 'tatiane',
     accent: '#c97d6d',
     icon: HeartHandshake,
+    url: 'https://site-tatiane-w2q6.vercel.app/',
   },
   {
     number: '03',
@@ -41,6 +40,7 @@ const projects = [
     tone: 'minhoca',
     accent: '#baf134',
     icon: Worm,
+    url: 'https://doutorminhoca.vercel.app/',
   },
   {
     number: '04',
@@ -50,6 +50,7 @@ const projects = [
     tone: 'gaiotto',
     accent: '#ff842c',
     icon: Wrench,
+    url: 'https://site-mecanica-gaiotto.vercel.app/',
   },
 ];
 
@@ -57,58 +58,10 @@ const whatsappUrl =
   'https://wa.me/5519989299432?text=Olá%2C%20Pedro!%20Tenho%20interesse%20em%20criar%20um%20site%20para%20minha%20marca.';
 
 export default function Home() {
-  const heroRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const revealItems = document.querySelectorAll<HTMLElement>('.reveal');
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach(
-          (entry) =>
-            entry.isIntersecting && entry.target.classList.add('is-visible'),
-        ),
-      { threshold: 0.14 },
-    );
-    revealItems.forEach((item) => observer.observe(item));
-
-    const updateParallax = () => {
-      heroRef.current?.style.setProperty(
-        '--hero-offset',
-        `${Math.min(window.scrollY * 0.18, 96)}px`,
-      );
-    };
-    const movePortrait = (event: PointerEvent) => {
-      const hero = heroRef.current;
-      if (!hero) return;
-      const rect = hero.getBoundingClientRect();
-      hero.style.setProperty(
-        '--pointer-x',
-        `${((event.clientX - rect.left) / rect.width - 0.5) * 18}px`,
-      );
-      hero.style.setProperty(
-        '--pointer-y',
-        `${((event.clientY - rect.top) / rect.height - 0.5) * 18}px`,
-      );
-    };
-    const resetPortrait = () => {
-      heroRef.current?.style.setProperty('--pointer-x', '0px');
-      heroRef.current?.style.setProperty('--pointer-y', '0px');
-    };
-    updateParallax();
-    window.addEventListener('scroll', updateParallax, { passive: true });
-    heroRef.current?.addEventListener('pointermove', movePortrait);
-    heroRef.current?.addEventListener('pointerleave', resetPortrait);
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('scroll', updateParallax);
-      heroRef.current?.removeEventListener('pointermove', movePortrait);
-      heroRef.current?.removeEventListener('pointerleave', resetPortrait);
-    };
-  }, []);
-
   return (
     <main>
-      <section className="hero" id="inicio" ref={heroRef}>
+      <SiteMotion />
+      <section className="hero" id="inicio">
         <nav className="nav nav-wide">
           <a
             href="#inicio"
@@ -155,7 +108,14 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-art">
-            <img src="/pedro-hero-v2.png" alt="Pedro Gozetto" />
+            <img
+              src="/pedro-hero-v2.webp"
+              alt="Pedro Gozetto"
+              width={1024}
+              height={1024}
+              decoding="async"
+              fetchPriority="high"
+            />
           </div>
         </div>
       </section>
@@ -207,8 +167,10 @@ export default function Home() {
           {projects.map((project) => {
             const ProjectIcon = project.icon;
             return (
-              <Link
-                href={`/projetos/${project.slug}`}
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
                 className="project-card reveal"
                 key={project.slug}
                 style={
@@ -234,7 +196,7 @@ export default function Home() {
                   </div>
                   <ArrowUpRight size={20} />
                 </div>
-              </Link>
+              </a>
             );
           })}
         </div>
