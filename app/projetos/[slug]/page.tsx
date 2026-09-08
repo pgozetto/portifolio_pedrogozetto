@@ -40,6 +40,12 @@ const cases = {
   },
 };
 
+export function generateStaticParams() {
+  return Object.keys(cases).map((slug) => ({ slug }));
+}
+
+export const dynamicParams = false;
+
 export default async function ProjectPage({
   params,
 }: {
