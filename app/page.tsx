@@ -18,14 +18,12 @@ export default function Home() {
       </nav>
       <div className="hero-grid shell">
         <div className="hero-copy">
-          <p className="eyebrow"><span /> Agência digital independente</p>
           <h1>Sites que fazem a sua marca <em>ser lembrada.</em></h1>
           <p className="hero-description">Criamos experiências digitais com estratégia, design e uma atenção quase obsessiva pelos detalhes.</p>
           <div className="hero-actions"><a href="#projetos" className="button button-primary">Ver projetos <ArrowRight size={17} /></a><a href="#sobre" className="text-link">Conheça o estúdio <MoveRight size={18} /></a></div>
         </div>
-        <div className="hero-art" aria-label="Escultura digital abstrata em azul e preto"><div className="art-label top-label">PEDRO GOZETTO / DIGITAL FORM</div><img src="/agency-hero.png" alt="Composição abstrata em azul e preto" /><div className="art-label bottom-label">EST. 2026 &nbsp;—&nbsp; SÃO PAULO, BR</div></div>
+        <div className="hero-art"><img src="/pedro-hero.png" alt="Pedro Gozetto" /></div>
       </div>
-      <div className="hero-foot shell"><p>Estratégia · Design · Desenvolvimento</p><a href="#projetos"><span>SCROLL TO EXPLORE</span><ArrowRight size={17} /></a></div>
     </section>
     <section className="intro-section shell" id="sobre">
       <p className="section-index">01 / SOBRE</p>
