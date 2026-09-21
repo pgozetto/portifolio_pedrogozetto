@@ -1,7 +1,6 @@
 import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import {
-  ArrowDownRight,
   ArrowUpRight,
   BadgeCheck,
   HeartHandshake,
@@ -9,10 +8,10 @@ import {
   Medal,
   MessageCircle,
   MoveRight,
-  Sparkles,
   Worm,
   Wrench,
 } from 'lucide-react';
+import { FooterTypewriter } from '@/components/footer-typewriter';
 import { SiteMotion } from '@/components/site-motion';
 
 const projects = [
@@ -59,7 +58,7 @@ export default function Home() {
       <SiteMotion />
 
       <section
-        className="hero relative isolate min-h-[760px] overflow-hidden border-b border-white/10"
+        className="hero relative isolate min-h-[760px] overflow-hidden border-b border-white/10 pt-[74px]"
         id="inicio"
       >
         <div aria-hidden className="hero-gridlines absolute inset-0 -z-20" />
@@ -72,28 +71,25 @@ export default function Home() {
           className="absolute left-[15%] top-[-16rem] -z-10 h-[33rem] w-[33rem] rounded-full bg-cyan-400/10 blur-3xl"
         />
 
-        <nav className="mx-auto flex h-[76px] w-full max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
+        <nav className="site-nav fixed inset-x-0 top-0 z-50 flex h-[74px] w-full items-center border-b border-white/10 bg-[#060A14]/94 px-4 backdrop-blur-xl sm:px-6 lg:px-12">
           <a
             href="#inicio"
-            className="group flex items-center gap-2.5 text-[11px] font-bold tracking-[0.18em] transition-opacity hover:opacity-70"
+            className="flex shrink-0 items-center text-[11px] font-bold tracking-[0.14em] text-white transition-opacity hover:opacity-75"
             aria-label="Pedro Gozetto, início"
           >
-            <span className="relative grid h-7 w-7 place-items-center rounded-[9px] border border-[#7DA3FF]/70 bg-[#0C1D4A] shadow-[0_0_30px_rgba(61,121,255,0.35)]">
-              <span className="h-2 w-2 rounded-full bg-[#9DB8FF] shadow-[0_0_13px_#6E9BFF]" />
-            </span>
             <span className="hidden min-[380px]:inline">PEDRO GOZETTO</span>
             <span className="min-[380px]:hidden">PG</span>
           </a>
 
-          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-[#0A1022]/70 p-1 text-[11px] text-[#B8C4E4] backdrop-blur-md sm:flex">
+          <div className="mx-3 flex flex-1 items-center justify-center gap-2 rounded-full border border-white/15 bg-[#10182D]/95 px-2 py-1 text-[12px] font-medium text-[#DDE7FF] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] sm:mx-8 sm:gap-3 sm:px-3 sm:py-1.5 sm:text-[13px]">
             <a
-              className="rounded-full px-4 py-2 transition hover:bg-white/10 hover:text-white"
+              className="rounded-full px-2.5 py-1.5 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
               href="#sobre"
             >
               Estúdio
             </a>
             <a
-              className="rounded-full px-4 py-2 transition hover:bg-white/10 hover:text-white"
+              className="rounded-full px-2.5 py-1.5 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
               href="#projetos"
             >
               Projetos
@@ -101,13 +97,13 @@ export default function Home() {
           </div>
 
           <a
-            className="group inline-flex items-center gap-2 rounded-full border border-[#9FB9FF]/40 bg-[#E9EEFF] px-3.5 py-2 text-[11px] font-bold text-[#0A1532] shadow-[0_10px_30px_rgba(76,123,255,0.15)] transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_40px_rgba(76,123,255,0.36)]"
+            className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-[#AFC4FF]/65 bg-[#2E60DF] px-3 py-2 text-[11px] font-extrabold text-white shadow-[0_10px_30px_rgba(0,0,0,0.36)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#3D71F2] hover:shadow-[0_14px_38px_rgba(28,72,190,0.45)] sm:px-4"
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
           >
             <MessageCircle size={14} strokeWidth={2.2} />
-            <span className="hidden sm:inline">Conversar</span>
+            <span className="hidden min-[520px]:inline">Conversar</span>
             <ArrowUpRight
               className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               size={13}
@@ -140,7 +136,7 @@ export default function Home() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-3 rounded-2xl bg-[#E9EEFF] px-5 py-3.5 text-[13px] font-bold text-[#07122D] transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_18px_40px_rgba(77,122,255,0.35)]"
+                className="group inline-flex items-center gap-3 rounded-2xl border border-[#B9CCFF]/65 bg-[#315FDC] px-5 py-3.5 text-[13px] font-extrabold text-white shadow-[0_16px_36px_rgba(19,54,144,0.42)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#3C71F3] hover:shadow-[0_20px_42px_rgba(42,90,220,0.48)]"
               >
                 Falar no WhatsApp
                 <MessageCircle
@@ -160,7 +156,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="mt-12 flex flex-wrap gap-3 text-[10px] font-medium tracking-[0.08em] text-[#8494B8]">
+            <div className="mt-12 hidden flex-wrap gap-3 text-[10px] font-medium tracking-[0.08em] text-[#8494B8] md:flex">
               <span className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-2 shadow-[0_24px_80px_rgba(0,0,0,0.18)] backdrop-blur-xl">
                 04 CASES SELECIONADOS
               </span>
@@ -181,8 +177,8 @@ export default function Home() {
                 aria-hidden
                 className="absolute inset-3 rounded-[1.45rem] border border-white/10"
               />
-              <span className="absolute left-7 top-7 z-10 rounded-full border border-white/10 bg-[#071027]/75 px-3 py-1.5 text-[9px] font-medium tracking-[0.16em] text-[#BED0FC] backdrop-blur">
-                PEDRO GOZETTO / 2026
+              <span className="absolute left-7 top-7 z-10 rounded-full border border-white/10 bg-[#071027]/75 px-3 py-1.5 text-[10px] font-semibold tracking-[0.16em] text-[#D7E4FF] backdrop-blur">
+                PEDRO GOZETTO
               </span>
               <Image
                 src="/pedro-hero-v2.webp"
@@ -191,24 +187,8 @@ export default function Home() {
                 height={1024}
                 fetchPriority="high"
                 decoding="async"
-                className="hero-portrait relative z-[1] mx-auto block h-auto w-[108%] max-w-none translate-y-4 object-contain sm:w-[112%]"
+                className="hero-portrait relative z-[1] mx-auto block h-auto w-full max-w-[540px] translate-y-5 object-contain object-center"
               />
-              <div className="absolute bottom-6 right-6 z-10 grid h-11 w-11 place-items-center rounded-2xl border border-white/20 bg-white/10 text-[#DCE7FF] backdrop-blur-md">
-                <ArrowDownRight size={19} />
-              </div>
-            </div>
-
-            <div className="absolute -left-3 bottom-[16%] z-20 hidden rounded-2xl border border-white/15 bg-[#0B1632]/85 p-3 pr-5 shadow-2xl backdrop-blur-xl sm:flex sm:items-center sm:gap-3">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#263D7D] text-[#BFD1FF]">
-                <Sparkles size={16} />
-              </span>
-              <span className="text-[10px] font-medium leading-4 tracking-[0.06em] text-[#D3DEFA]">
-                FEITO PARA
-                <br />
-                <strong className="font-semibold text-white">
-                  MOVER MARCAS
-                </strong>
-              </span>
             </div>
           </div>
         </div>
@@ -216,69 +196,45 @@ export default function Home() {
 
       <section
         id="sobre"
-        className="relative mx-auto grid w-full max-w-[1440px] gap-6 px-5 py-24 sm:px-8 lg:grid-cols-[0.43fr_1fr] lg:px-12 lg:py-36"
+        className="relative mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-8 lg:px-12 lg:py-36"
       >
-        <div className="reveal flex flex-col justify-between">
-          <div>
-            <p className="text-[10px] font-semibold tracking-[0.2em] text-[#86A9FE]">
-              01 / O ESTÚDIO
+        <div className="reveal relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.18)] backdrop-blur-xl sm:p-9 lg:p-12">
+          <div
+            aria-hidden
+            className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#214CD4]/20 blur-3xl"
+          />
+          <div className="relative">
+            <p className="mb-7 flex items-center gap-2 text-[11px] font-semibold tracking-[0.18em] text-[#B5C6EE]">
+              <BadgeCheck size={15} className="text-[#89AEFF]" />
+              QUEM ESTÁ POR TRÁS
             </p>
-            <p className="mt-4 max-w-[210px] text-sm leading-6 text-[#94A4C4]">
-              Uma direção independente para marcas que buscam presença de
-              verdade.
-            </p>
-          </div>
-          <a
-            href="#contato"
-            className="group mt-10 inline-flex w-fit items-center gap-2 text-[12px] font-semibold text-[#D7E4FF] transition hover:text-white lg:mt-0"
-          >
-            Construir algo junto
-            <ArrowUpRight
-              className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
-              size={15}
-            />
-          </a>
-        </div>
+            <h2 className="max-w-4xl text-[clamp(2.35rem,5.1vw,5.7rem)] font-semibold leading-[0.93] tracking-[-0.075em] text-[#F4F7FF]">
+              Sou Pedro, designer e estrategista digital para marcas que não
+              querem parecer como todo mundo.
+            </h2>
 
-        <div className="reveal">
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.18)] backdrop-blur-xl sm:p-9 lg:p-12">
-            <div
-              aria-hidden
-              className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#214CD4]/20 blur-3xl"
-            />
-            <div className="relative">
-              <p className="mb-7 flex items-center gap-2 text-[10px] font-semibold tracking-[0.18em] text-[#A8B9DF]">
-                <BadgeCheck size={14} className="text-[#7EA8FF]" />
-                QUEM ESTÁ POR TRÁS
+            <div className="mt-12 grid gap-8 border-t border-white/10 pt-7 md:grid-cols-[1.2fr_0.8fr]">
+              <p className="max-w-xl text-[16px] leading-7 text-[#C3CEE4]">
+                Transformo boas ideias em sites claros, vivos e impossíveis de
+                ignorar. Cada projeto começa entendendo a essência da marca — e
+                termina com uma experiência que dá vontade de explorar.
               </p>
-              <h2 className="max-w-4xl text-[clamp(2.35rem,5.1vw,5.7rem)] font-semibold leading-[0.93] tracking-[-0.075em] text-[#F4F7FF]">
-                Sou Pedro, designer e estrategista digital para marcas que não
-                querem parecer como todo mundo.
-              </h2>
-
-              <div className="mt-12 grid gap-8 border-t border-white/10 pt-7 md:grid-cols-[1.2fr_0.8fr]">
-                <p className="max-w-xl text-[15px] leading-7 text-[#ACB9D3]">
-                  Transformo boas ideias em sites claros, vivos e impossíveis de
-                  ignorar. Cada projeto começa entendendo a essência da marca —
-                  e termina com uma experiência que dá vontade de explorar.
-                </p>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="rounded-2xl border border-white/10 bg-[#091127]/70 p-4">
-                    <strong className="block text-3xl font-semibold tracking-[-0.08em] text-white">
-                      04
-                    </strong>
-                    <span className="mt-2 block text-[9px] font-semibold leading-4 tracking-[0.14em] text-[#8FA3CD]">
-                      PROJETOS EM DESTAQUE
-                    </span>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-[#091127]/70 p-4">
-                    <strong className="block text-3xl font-semibold tracking-[-0.08em] text-white">
-                      100%
-                    </strong>
-                    <span className="mt-2 block text-[9px] font-semibold leading-4 tracking-[0.14em] text-[#8FA3CD]">
-                      FEITO SOB MEDIDA
-                    </span>
-                  </div>
+              <div className="hidden grid-cols-2 gap-3 md:grid">
+                <div className="rounded-2xl border border-white/10 bg-[#091127]/70 p-4">
+                  <strong className="block text-3xl font-semibold tracking-[-0.08em] text-white">
+                    04
+                  </strong>
+                  <span className="mt-2 block text-[10px] font-semibold leading-4 tracking-[0.14em] text-[#AEBFE1]">
+                    PROJETOS EM DESTAQUE
+                  </span>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-[#091127]/70 p-4">
+                  <strong className="block text-3xl font-semibold tracking-[-0.08em] text-white">
+                    100%
+                  </strong>
+                  <span className="mt-2 block text-[10px] font-semibold leading-4 tracking-[0.14em] text-[#AEBFE1]">
+                    FEITO SOB MEDIDA
+                  </span>
                 </div>
               </div>
             </div>
@@ -307,9 +263,8 @@ export default function Home() {
                 </em>
               </h2>
             </div>
-            <p className="max-w-[320px] text-[15px] leading-7 text-[#9EADCB]">
-              Quatro universos visuais criados para traduzir ambição em presença
-              digital.
+            <p className="max-w-[320px] text-[16px] leading-7 text-[#C0CCE2]">
+              Quatro sites criados por Pedro Gozetto para clientes reais.
             </p>
           </div>
 
@@ -394,12 +349,7 @@ export default function Home() {
               <span className="h-1.5 w-1.5 rounded-full bg-[#6C95FF] shadow-[0_0_13px_#6C95FF]" />
               PRÓXIMO PROJETO
             </p>
-            <h2 className="mt-7 text-[clamp(3.45rem,8vw,8.5rem)] font-semibold leading-[0.82] tracking-[-0.09em] text-white">
-              Tem uma boa ideia?
-              <em className="block font-serif font-normal tracking-[-0.08em] text-[#C3D2FF]">
-                Vamos dar forma a ela.
-              </em>
-            </h2>
+            <FooterTypewriter />
 
             <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a
@@ -413,7 +363,7 @@ export default function Home() {
                 />
               </a>
               <a
-                className="group inline-flex w-fit items-center gap-2.5 rounded-2xl border border-[#B9CFFF]/40 bg-[#E9EEFF] px-5 py-3.5 text-[13px] font-bold text-[#0B1734] transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_18px_50px_rgba(83,127,255,0.4)] sm:ml-2"
+                className="group inline-flex w-fit items-center gap-2.5 rounded-2xl border border-[#B7CBFF]/70 bg-[#315FDC] px-5 py-3.5 text-[14px] font-extrabold text-white shadow-[0_16px_38px_rgba(5,12,34,0.55)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#3C71F3] hover:shadow-[0_20px_46px_rgba(32,78,205,0.5)] sm:ml-2"
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"

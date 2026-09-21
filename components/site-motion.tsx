@@ -5,14 +5,21 @@ import { useEffect } from 'react';
 export function SiteMotion() {
   useEffect(() => {
     const hero = document.querySelector<HTMLElement>('.hero');
+    const navigation = document.querySelector<HTMLElement>('.site-nav');
     const revealItems = document.querySelectorAll<HTMLElement>('.reveal');
     const reduceMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)',
     ).matches;
 
+    const updateNavigation = () => {
+      navigation?.classList.toggle('is-scrolled', window.scrollY > 10);
+    };
+    updateNavigation();
+    window.addEventListener('scroll', updateNavigation, { passive: true });
+
     if (reduceMotion) {
       revealItems.forEach((item) => item.classList.add('is-visible'));
-      return;
+      return () => window.removeEventListener('scroll', updateNavigation);
     }
 
     const observer = new IntersectionObserver(
@@ -68,6 +75,7 @@ export function SiteMotion() {
 
     return () => {
       observer.disconnect();
+      window.removeEventListener('scroll', updateNavigation);
       window.removeEventListener('scroll', updateParallax);
       hero?.removeEventListener('pointermove', movePortrait);
       hero?.removeEventListener('pointerleave', resetPortrait);
