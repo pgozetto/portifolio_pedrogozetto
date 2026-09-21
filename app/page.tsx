@@ -57,6 +57,46 @@ export default function Home() {
     <main className="overflow-hidden bg-[#050814] text-[#F6F8FF]">
       <SiteMotion />
 
+      <nav className="site-nav fixed inset-x-0 top-0 z-[100] flex h-[74px] w-full items-center border-b border-white/10 bg-[#060A14]/94 px-4 backdrop-blur-xl sm:px-6 lg:px-12">
+        <a
+          href="#inicio"
+          className="flex shrink-0 items-center text-[11px] font-bold tracking-[0.14em] text-white transition-opacity hover:opacity-75"
+          aria-label="Pedro Gozetto, início"
+        >
+          <span className="hidden min-[380px]:inline">PEDRO GOZETTO</span>
+          <span className="min-[380px]:hidden">PG</span>
+        </a>
+
+        <div className="mx-3 flex flex-1 items-center justify-center gap-2 rounded-full border border-white/15 bg-[#10182D]/95 px-2 py-1 text-[12px] font-medium text-[#DDE7FF] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] sm:mx-8 sm:gap-3 sm:px-3 sm:py-1.5 sm:text-[13px]">
+          <a
+            className="rounded-full px-2.5 py-1.5 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
+            href="#sobre"
+          >
+            Estúdio
+          </a>
+          <a
+            className="rounded-full px-2.5 py-1.5 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
+            href="#projetos"
+          >
+            Projetos
+          </a>
+        </div>
+
+        <a
+          className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-[#AFC4FF]/65 bg-[#2E60DF] px-3 py-2 text-[11px] font-extrabold text-white shadow-[0_10px_30px_rgba(0,0,0,0.36)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#3D71F2] hover:shadow-[0_14px_38px_rgba(28,72,190,0.45)] sm:px-4"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <MessageCircle size={14} strokeWidth={2.2} />
+          <span className="hidden min-[520px]:inline">Conversar</span>
+          <ArrowUpRight
+            className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            size={13}
+          />
+        </a>
+      </nav>
+
       <section
         className="hero relative isolate min-h-[760px] overflow-hidden border-b border-white/10 pt-[74px]"
         id="inicio"
@@ -70,46 +110,6 @@ export default function Home() {
           aria-hidden
           className="absolute left-[15%] top-[-16rem] -z-10 h-[33rem] w-[33rem] rounded-full bg-cyan-400/10 blur-3xl"
         />
-
-        <nav className="site-nav fixed inset-x-0 top-0 z-50 flex h-[74px] w-full items-center border-b border-white/10 bg-[#060A14]/94 px-4 backdrop-blur-xl sm:px-6 lg:px-12">
-          <a
-            href="#inicio"
-            className="flex shrink-0 items-center text-[11px] font-bold tracking-[0.14em] text-white transition-opacity hover:opacity-75"
-            aria-label="Pedro Gozetto, início"
-          >
-            <span className="hidden min-[380px]:inline">PEDRO GOZETTO</span>
-            <span className="min-[380px]:hidden">PG</span>
-          </a>
-
-          <div className="mx-3 flex flex-1 items-center justify-center gap-2 rounded-full border border-white/15 bg-[#10182D]/95 px-2 py-1 text-[12px] font-medium text-[#DDE7FF] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] sm:mx-8 sm:gap-3 sm:px-3 sm:py-1.5 sm:text-[13px]">
-            <a
-              className="rounded-full px-2.5 py-1.5 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
-              href="#sobre"
-            >
-              Estúdio
-            </a>
-            <a
-              className="rounded-full px-2.5 py-1.5 transition hover:bg-white/10 hover:text-white sm:px-4 sm:py-2"
-              href="#projetos"
-            >
-              Projetos
-            </a>
-          </div>
-
-          <a
-            className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-[#AFC4FF]/65 bg-[#2E60DF] px-3 py-2 text-[11px] font-extrabold text-white shadow-[0_10px_30px_rgba(0,0,0,0.36)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#3D71F2] hover:shadow-[0_14px_38px_rgba(28,72,190,0.45)] sm:px-4"
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <MessageCircle size={14} strokeWidth={2.2} />
-            <span className="hidden min-[520px]:inline">Conversar</span>
-            <ArrowUpRight
-              className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              size={13}
-            />
-          </a>
-        </nav>
 
         <div className="mx-auto grid w-full max-w-[1440px] items-center gap-8 px-5 pb-14 pt-10 sm:px-8 lg:min-h-[calc(100svh-76px)] lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:px-12 lg:py-10">
           <div className="reveal max-w-3xl py-6 lg:py-10">
