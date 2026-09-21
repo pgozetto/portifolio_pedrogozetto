@@ -187,7 +187,7 @@ export default function Home() {
                 height={1024}
                 fetchPriority="high"
                 decoding="async"
-                className="hero-portrait relative z-[1] mx-auto block h-auto w-full max-w-[540px] translate-y-5 object-contain object-center"
+                className="hero-portrait relative z-[1] mx-auto block h-auto w-[104%] max-w-[560px] translate-y-5 object-contain object-center"
               />
             </div>
           </div>
